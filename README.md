@@ -12,22 +12,31 @@
 
 ### Ensure the following libraries are installed before running the notebook:
 
-!pip install openai transformers datasets pandas scikit-learn evaluate
+!pip install openai transformers datasets pandas scikit-learn evaluate matplotlib boto3 sagemaker
 
 ### Import necessary modules:
 
 import pandas as pd
 from datasets import Dataset
-from transformers import T5Tokenizer, T5ForConditionalGeneration,TrainingArguments,Trainer
+from transformers import T5Tokenizer, T5ForConditionalGeneration, TrainingArguments, Trainer
+import matplotlib.pyplot as plt
 import re
 from sklearn.model_selection import train_test_split
 import evaluate
 import openai
 from openai import OpenAI
 from google.colab import userdata
+import boto3
+import sagemaker
 import warnings
 warnings.filterwarnings('ignore')
 
+### Model Deployment on Amazon SageMaker
+
+1. Save the fine-tuned T5 model and tokenizer.
+2. Upload the model to Amazon S3 for storage.
+3. Deploy the model on Amazon SageMaker as an endpoint.
+4. Run inference using the deployed model.
 
 ### Known Limitations and Potential Improvements
 1. Limited Dataset Size: Small training data may lead to incomplete learning and inaccurate outputs.
